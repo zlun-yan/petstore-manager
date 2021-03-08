@@ -4,4 +4,5 @@ import org.csu.petstore.domain.AdminUser;
 
 public interface AdminUserService {
 
+    AdminUser login(String username, String password);
 }

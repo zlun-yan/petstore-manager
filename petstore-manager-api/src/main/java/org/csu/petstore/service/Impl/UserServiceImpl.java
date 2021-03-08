@@ -13,15 +13,20 @@ public class UserServiceImpl implements UserService {
     private UserDAO userDAO;
 
     @Override
-    public User login(User user) {
-        return userDAO.findByUsernameAndPassword(user);
-    }
-
-    @Override
     public User login(String username, String password) {
-        User user = new User();
-        user.setUsername(username);
-        user.setPassword(password);
-        return userDAO.findByUsernameAndPassword(user);
+        User user = userDAO.findByUsername(username);
+
+        if (user == null) {
+            System.out.println("该用户【" + username + "】不存在");
+            return null;
+        }
+        else {
+            if (user.getPassword().equals(password)) {
+                return user;
+            }
+        }
+
+        System.out.println("该用户【" + username + "】密码错误");
+        return null;
     }
 }

@@ -5,5 +5,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AdminRoleDAO {
-    AdminRole findById(AdminRole adminRole);
+
+    AdminRole findById(Integer id);
 }

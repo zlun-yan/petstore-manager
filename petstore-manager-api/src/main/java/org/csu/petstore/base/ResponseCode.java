@@ -21,7 +21,13 @@ public enum ResponseCode {
 
     LOGIN_USERNAME_OR_PASSWORD_ERROR_903(903, "账号或密码错误"),
 
-    USER_NOT_LOGIN_905(905, "please login"),
+    USER_EXISTS_ERROR_904(904, "账号已存在"),
+
+    USER_NOT_LOGIN_905(905, "请先登录"),
+
+    UPLOAD_FILE_FORMAT_IS_WRONG_906(906, "上传文件格式不对"),
+
+    UPLOAD_FILE_VALIDATE_NULL_907(907, "上传文件为空"),
 
     ;
     private static Map<Integer, ResponseCode> codeMap = new HashMap<Integer, ResponseCode>();

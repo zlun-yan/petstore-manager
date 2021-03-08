@@ -1,10 +1,10 @@
 package org.csu.petstore.persistence;
 
-import org.csu.petstore.domain.Item;
+import org.csu.petstore.domain.Shop;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ItemDAO {
+public interface ShopDAO {
 
-    Item findByItemId(Integer id);
+    Shop findByName(String name);
 }

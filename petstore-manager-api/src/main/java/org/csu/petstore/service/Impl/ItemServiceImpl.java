@@ -13,14 +13,7 @@ public class ItemServiceImpl implements ItemService {
     private ItemDAO itemDAO;
 
     @Override
-    public Item getItemByItemId(Item item) {
-        return itemDAO.findByItemId(item);
-    }
-
-    @Override
     public Item getItemByItemId(Integer id) {
-        Item item = new Item();
-        item.setId(id);
-        return itemDAO.findByItemId(item);
+        return itemDAO.findByItemId(id);
     }
 }

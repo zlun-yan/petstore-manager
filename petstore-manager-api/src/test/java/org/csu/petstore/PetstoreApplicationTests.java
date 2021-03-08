@@ -1,12 +1,8 @@
 package org.csu.petstore;
 
 import org.csu.petstore.controller.UserController;
-import org.csu.petstore.domain.Address;
-import org.csu.petstore.domain.AdminRole;
-import org.csu.petstore.domain.User;
-import org.csu.petstore.service.AddressService;
-import org.csu.petstore.service.AdminRoleService;
-import org.csu.petstore.service.UserService;
+import org.csu.petstore.domain.*;
+import org.csu.petstore.service.*;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +16,7 @@ import java.util.List;
 class PetstoreApplicationTests {
 
     @Autowired
-    private AdminRoleService adminRoleService;
+    private UserService userService;
 
     @Test
     void contextLoads() {
@@ -28,8 +24,9 @@ class PetstoreApplicationTests {
 
     @Test
     void test() {
-        AdminRole role = adminRoleService.getAdminRoleByRoleId(1);
-        System.out.println(role.getId() + ", " + role.getRole_name() + ", " + role.getCreateDate());
+        User user = userService.login("admin", "admin");
+
+        System.out.println(user.getId() + ", " + user.getEmail());
     }
 
 }

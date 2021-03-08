@@ -13,14 +13,7 @@ public class AdminRoleServiceImpl implements AdminRoleService {
     private AdminRoleDAO adminRoleDAO;
 
     @Override
-    public AdminRole getAdminRoleByRoleId(AdminRole role) {
-        return adminRoleDAO.findById(role);
-    }
-
-    @Override
     public AdminRole getAdminRoleByRoleId(Integer id) {
-        AdminRole role = new AdminRole();
-        role.setId(id);
-        return adminRoleDAO.findById(role);
+        return adminRoleDAO.findById(id);
     }
 }
