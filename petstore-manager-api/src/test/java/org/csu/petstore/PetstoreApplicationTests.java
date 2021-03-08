@@ -1,7 +1,11 @@
 package org.csu.petstore;
 
 import org.csu.petstore.controller.UserController;
+import org.csu.petstore.domain.Address;
+import org.csu.petstore.domain.AdminRole;
 import org.csu.petstore.domain.User;
+import org.csu.petstore.service.AddressService;
+import org.csu.petstore.service.AdminRoleService;
 import org.csu.petstore.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.annotation.MapperScan;
@@ -9,15 +13,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cache.annotation.EnableCaching;
 
+import java.util.List;
+
 @SpringBootTest
 @MapperScan("org.csu.petstore.persistence")
 class PetstoreApplicationTests {
 
     @Autowired
-    private UserService userService;
-
-    @Autowired
-    private UserController userController;
+    private AdminRoleService adminRoleService;
 
     @Test
     void contextLoads() {
@@ -25,13 +28,8 @@ class PetstoreApplicationTests {
 
     @Test
     void test() {
-//        User user = new User();
-//        user.setUsername("admin");
-//        user.setPassword("admin");
-//        user = userService.login(user);
-//
-//        System.out.println(user.getId() + ", " + user.getUsername() + ", " + user.getPassword() + ", " + user.getEmail());
-        userController.zlunMethod();
+        AdminRole role = adminRoleService.getAdminRoleByRoleId(1);
+        System.out.println(role.getId() + ", " + role.getRole_name() + ", " + role.getCreateDate());
     }
 
 }

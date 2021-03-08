@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiOperation;
 import org.csu.petstore.base.BaseResult;
 import org.csu.petstore.base.ResponseCode;
 import org.csu.petstore.domain.User;
+import org.csu.petstore.service.AddressService;
 import org.csu.petstore.service.UserService;
 import org.csu.petstore.utils.ParamsCheckUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private AddressService addressService;
 
     @PostMapping(value = "/login")
     @ApiOperation(value = "登录", notes = "")
